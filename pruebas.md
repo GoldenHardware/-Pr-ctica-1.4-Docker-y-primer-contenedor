@@ -13,7 +13,7 @@ docker images
 
 La construcción termina con "FINISHED" y los 5 pasos del Dockerfile. La imagen api-practica:1.0 ocupa 201 MB.
 
-![Captura 6](img/captura6.png)
+![Captura 6](captura6.png)
 
 ## Sentencia de arranque del contenedor
 
@@ -32,7 +32,7 @@ docker ps
 
 El contenedor aparece con estado "Up".
 
-![Captura 7](img/captura7.png)
+![Captura 7](captura7.png)
 
 ## Pruebas de los endpoints con curl
 
@@ -43,7 +43,7 @@ El contenedor aparece con estado "Up".
 | Ping | `curl http://127.0.0.1:8080/ping` | `{"message":"pong"}` | `{"message":"pong"}` |
 | Logs | `docker logs api-backend` | Peticiones registradas | Arranque de uvicorn en 0.0.0.0:8000 y los tres GET con 200 OK |
 
-![Captura 8](img/captura8.png)
+![Captura 8](captura8.png)
 
 ## Acceso a /docs (Swagger)
 
@@ -55,7 +55,7 @@ ssh -p 2222 -L 8080:127.0.0.1:8080 duro@127.0.0.1
 
 Con esa conexión abierta entré en `http://127.0.0.1:8080/docs` desde el navegador del PC. Aparece la documentación de Swagger con el título "API practica 1.1", la versión 0.1.0, la descripción y los tres endpoints. En /health pulsé "Try it out" y "Execute" y la respuesta fue código 200 con `{"status": "ok"}`.
 
-![Captura 9](img/captura9.png)
+![Captura 9](captura9.png)
 
 ## Ciclo de vida
 
@@ -67,13 +67,13 @@ Con esa conexión abierta entré en `http://127.0.0.1:8080/docs` desde el navega
 | Eliminar | `docker stop api-backend` y `docker rm api-backend` | Ya no aparece en `docker ps -a`, pero la imagen sigue en `docker images` |
 | Volver a crear | `docker run -d --name api-backend -p 8080:8000 api-practica:1.0` | Contenedor nuevo en estado "Up" |
 
-![Captura 10](img/captura10.png)
+![Captura 10](captura10.png)
 
-![Captura 11](img/captura11.png)
+![Captura 11](captura11.png)
 
-![Captura 12](img/captura12.png)
+![Captura 12](captura12.png)
 
-![Captura 13](img/captura13.png)
+![Captura 13](captura13.png)
 
 ## Resultado
 
